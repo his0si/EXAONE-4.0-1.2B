@@ -1,0 +1,22 @@
+[
+  {
+    "model_name": "Base Model (EXAONE-4.0-1.2B)",
+    "model_path": "./base_model",
+    "model_size_gb": 2.383088029921055,
+    "perplexity": 48.02156685133925,
+    "tokens_per_sec": 72.34027385395649,
+    "time_per_token": 0.0138235583959613,
+    "total_tokens": 5,
+    "total_time": 0.0691177919798065
+  },
+  {
+    "model_name": "W4A16 Quantized",
+    "model_path": "./model_quantized",
+    "model_size_gb": 1.2951833456754684,
+    "perplexity": 57.06422351614611,
+    "tokens_per_sec": 13.715960541082572,
+    "time_per_token": 0.0729077629674394,
+    "total_tokens": 61,
+    "total_time": 4.447373541013803
+  }
+]

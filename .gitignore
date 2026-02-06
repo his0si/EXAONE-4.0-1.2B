@@ -1,0 +1,46 @@
+# ===================
+# Model weights (GitHub 100MB 파일 제한 초과)
+# ===================
+base_model/
+model/
+model_*/
+
+# ===================
+# ZIP archives (1.1~4.9GB, GitHub 용량 초과)
+# ===================
+*.zip
+
+# ===================
+# Editor swap / temp files
+# ===================
+*.swp
+*.swo
+*~
+
+# ===================
+# Python
+# ===================
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ===================
+# IDE / Editor
+# ===================
+.vscode/
+.idea/
+*.iml
+
+# ===================
+# OS generated
+# ===================
+.DS_Store
+Thumbs.db
+
+# ===================
+# Claude Code local config
+# ===================
+.claude/

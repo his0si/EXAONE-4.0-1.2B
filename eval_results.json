@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Base Model",
+    "path": "./base_model",
+    "size_gb": 2.383088029921055,
+    "gpu_mem_gb": 2.3830742835998535,
+    "perplexity": 70.52705413578273,
+    "tokens_per_sec": 72.25017910480258,
+    "time_per_token": 0.013840796139057992
+  },
+  {
+    "name": "model",
+    "path": "model",
+    "size_gb": 1.2951833456754684,
+    "gpu_mem_gb": 2.6661014556884766,
+    "perplexity": 84.20593132531575,
+    "tokens_per_sec": 13.710333696660557,
+    "time_per_token": 0.07293768496995601
+  },
+  {
+    "name": "model_W4A16_n1024",
+    "path": "model_W4A16_n1024",
+    "size_gb": 1.2951833456754684,
+    "gpu_mem_gb": 3.5715742111206055,
+    "perplexity": 73.8408221318292,
+    "tokens_per_sec": 13.734783918760863,
+    "time_per_token": 0.07280784364099548
+  },
+  {
+    "name": "model_W4A16_n512",
+    "path": "model_W4A16_n512",
+    "size_gb": 1.2951833456754684,
+    "gpu_mem_gb": 3.5715742111206055,
+    "perplexity": 72.75156940113176,
+    "tokens_per_sec": 13.661566121214957,
+    "time_per_token": 0.07319804999860935
+  },
+  {
+    "name": "model_W8A16",
+    "path": "model_W8A16",
+    "size_gb": 1.7785244584083557,
+    "gpu_mem_gb": 3.5715742111206055,
+    "perplexity": 70.82504889427813,
+    "tokens_per_sec": 15.453384079586087,
+    "time_per_token": 0.06471074522253023
+  },
+  {
+    "name": "model_quantized",
+    "path": "model_quantized",
+    "size_gb": 1.2951833456754684,
+    "gpu_mem_gb": 3.663153648376465,
+    "perplexity": 81.83405228565121,
+    "tokens_per_sec": 13.71553774481348,
+    "time_per_token": 0.07291001042800158
+  }
+]
