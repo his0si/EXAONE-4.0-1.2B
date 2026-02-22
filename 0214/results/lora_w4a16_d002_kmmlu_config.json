@@ -1,0 +1,8 @@
+{
+  "name": "lora_w4a16_d002_kmmlu",
+  "lora_base": "/home/lgaimers/0214/models/lora_merged",
+  "scheme": "W4A16",
+  "dampening_frac": 0.02,
+  "num_samples": 2048,
+  "size_gb": 1.2951833456754684
+}

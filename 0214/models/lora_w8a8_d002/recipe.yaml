@@ -1,0 +1,10 @@
+default_stage:
+  default_modifiers:
+    GPTQModifier:
+      targets: [Linear]
+      ignore: [embed_tokens, lm_head]
+      scheme: W8A8
+      block_size: 128
+      dampening_frac: 0.02
+      actorder: static
+      offload_hessians: false

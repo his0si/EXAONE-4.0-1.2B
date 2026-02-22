@@ -1,0 +1,15 @@
+{
+  "name": "w8a8_d02_c4096_s512",
+  "path": "/home/lgaimers/0214/models/w8a8_d02_c4096_s512",
+  "size_gb": 1.7785000130534172,
+  "gpu_mem_gb": 3.180575370788574,
+  "perplexity": 70.95527958768085,
+  "tokens_per_sec": 9.347477820307947,
+  "time_per_token": 0.1069807299063541,
+  "kmmlu_accuracy": 0.07,
+  "kmmlu_correct": 7,
+  "kmmlu_total": 100,
+  "perf_norm": 0.993964854280238,
+  "speed_norm": -6.725881860330095,
+  "local_score": 0
+}

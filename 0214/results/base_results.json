@@ -1,0 +1,12 @@
+{
+  "name": "base_model",
+  "path": "/home/lgaimers/base_model",
+  "size_gb": 2.383088029921055,
+  "gpu_mem_gb": 2.3830742835998535,
+  "perplexity": 70.52705413578273,
+  "tokens_per_sec": 72.21750933175507,
+  "time_per_token": 0.013847057441515582,
+  "kmmlu_accuracy": 0.06,
+  "kmmlu_correct": 6,
+  "kmmlu_total": 100
+}

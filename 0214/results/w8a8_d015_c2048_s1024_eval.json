@@ -1,0 +1,15 @@
+{
+  "name": "w8a8_d015_c2048_s1024",
+  "path": "/home/lgaimers/0214/models/w8a8_d015_c2048_s1024",
+  "size_gb": 1.7785000130534172,
+  "gpu_mem_gb": 3.180575370788574,
+  "perplexity": 71.63987607655798,
+  "tokens_per_sec": 9.38954938983266,
+  "time_per_token": 0.10650138345114152,
+  "kmmlu_accuracy": 0.05,
+  "kmmlu_correct": 5,
+  "kmmlu_total": 100,
+  "perf_norm": 0.9844664452017473,
+  "speed_norm": -6.691264653227638,
+  "local_score": 0
+}

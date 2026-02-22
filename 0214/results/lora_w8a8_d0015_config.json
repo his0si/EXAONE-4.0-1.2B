@@ -1,0 +1,8 @@
+{
+  "name": "lora_w8a8_d0015",
+  "lora_base": "/home/lgaimers/0214/models/lora_merged",
+  "scheme": "W8A8",
+  "dampening_frac": 0.015,
+  "num_samples": 2048,
+  "size_gb": 1.7785000130534172
+}

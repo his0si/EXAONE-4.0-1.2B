@@ -1,0 +1,10 @@
+{
+  "name": "w8a8_kmmlu_pure",
+  "config": {
+    "num_samples": 2048,
+    "include_manta": false,
+    "max_seq_length": 512,
+    "dampening_frac": 0.02
+  },
+  "size_gb": 1.7785000130534172
+}

@@ -1,0 +1,8 @@
+{
+  "name": "lora_w4a16_asym_kmmlu",
+  "lora_base": "/home/lgaimers/0214/models/lora_merged",
+  "scheme": "W4A16_ASYM",
+  "dampening_frac": 0.01,
+  "num_samples": 2048,
+  "size_gb": 1.2990978881716728
+}

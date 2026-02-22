@@ -1,0 +1,11 @@
+{
+  "name": "w4a16_kmmlu",
+  "config": {
+    "scheme": "W4A16",
+    "num_samples": 2048,
+    "include_manta": false,
+    "max_seq_length": 512,
+    "dampening_frac": 0.01
+  },
+  "size_gb": 1.2951833456754684
+}

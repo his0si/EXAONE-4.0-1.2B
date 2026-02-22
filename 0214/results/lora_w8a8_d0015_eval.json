@@ -1,0 +1,15 @@
+{
+  "name": "lora_w8a8_d0015",
+  "path": "/home/lgaimers/0214/models/lora_w8a8_d0015",
+  "size_gb": 1.7785000130534172,
+  "gpu_mem_gb": 3.180575370788574,
+  "perplexity": 68.82452723981827,
+  "tokens_per_sec": 9.277603660444337,
+  "time_per_token": 0.1077864539809525,
+  "kmmlu_accuracy": 0.32,
+  "kmmlu_correct": 32,
+  "kmmlu_total": 100,
+  "perf_norm": 1.0247372116343354,
+  "speed_norm": -6.784069246206226,
+  "local_score": 0
+}
