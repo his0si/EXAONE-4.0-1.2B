@@ -1,0 +1,5 @@
+{
+  "hf_id": "LGAI-EXAONE/KMMLU-Pro",
+  "type": "mcqa",
+  "error": "Dataset 'LGAI-EXAONE/KMMLU-Pro' is a gated dataset on the Hub. You must be authenticated to access it."
+}

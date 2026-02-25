@@ -1,0 +1,242 @@
+# ============================================================
+# EXAONE-4.0-1.2B Compression Pipeline Configuration
+# ============================================================
+
+project:
+  name: "EXAONE-4.0-1.2B Compression Hackathon"
+  base_model: "./base_model"
+  seed: 42
+
+datasets:
+  train:
+    hf_id: "LGAI-EXAONE/MANTA-1M"
+    num_samples: 5000
+    val_ratio: 0.05
+  benchmarks:
+    kmmlu_pro:
+      hf_id: "LGAI-EXAONE/KMMLU-Pro"
+      type: "mcqa"
+      weight: 1.0
+    kmmlu_redux:
+      hf_id: "LGAI-EXAONE/KMMLU-Redux"
+      type: "mcqa"
+      weight: 1.0
+    ko_longrag:
+      hf_id: "LGAI-EXAONE/Ko-LongRAG"
+      type: "qa"
+      weight: 1.0
+      max_context_len: 14336      # max_model_len(16384) - 생성버퍼(~2048)
+    komt_bench:
+      hf_id: "LGAI-EXAONE/KoMT-Bench"
+      type: "judge"
+      weight: 1.0
+      fallback: "skip_perf"
+
+vllm:
+  tensor_parallel_size: 1
+  gpu_memory_utilization: 0.85
+  max_model_len: 16384          # 대회 서버는 모델 기본값 사용; 로컬은 VRAM 제한으로 16384
+  sampling:
+    temperature: 0.0
+    max_tokens: 16384            # 대회 서버 max_gen_toks = 16384
+  apply_chat_template: true
+  speed_runs: 3
+
+training:
+  sft:
+    num_samples: 5000
+    val_ratio: 0.05
+    max_seq_length: 1024
+    batch_size: 2
+    grad_accum: 8
+    lr: 2.0e-5
+    epochs: 2
+    warmup_ratio: 0.1
+    weight_decay: 0.01
+    lora_rank: 64
+    lora_alpha: 128
+    lora_target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "down_proj"
+  post_sft:
+    num_samples: 3000
+    max_seq_length: 1024
+    batch_size: 2
+    grad_accum: 8
+    lr: 2.0e-5
+    epochs: 2
+    warmup_ratio: 0.1
+  kd:
+    num_samples: 5000
+    max_seq_length: 512
+    batch_size: 1
+    grad_accum: 16
+    lr: 2.0e-5
+    epochs: 3
+    warmup_ratio: 0.1
+    temperature: 2.0
+    alpha: 0.5
+
+# ============================================================
+# Lane Definitions (≥12 distinct compression strategies)
+# ============================================================
+lanes:
+  # ── Group 1: Quantize-Only (no fine-tuning) ──────────────
+  lane01_gptq_w4a16:
+    desc: "GPTQ W4A16 basic"
+    group: "quant_only"
+    train_mode: "none"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.01
+    input_model: null
+    depends_on: null
+
+  lane02_gptq_w4a16_damp:
+    desc: "GPTQ W4A16 dampened"
+    group: "quant_only"
+    train_mode: "none"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.02
+    input_model: null
+    depends_on: null
+
+  lane03_gptq_w8a16:
+    desc: "GPTQ W8A16"
+    group: "quant_only"
+    train_mode: "none"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W8A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.01
+    input_model: null
+    depends_on: null
+
+  lane04_fp8_dynamic:
+    desc: "FP8 Dynamic"
+    group: "quant_only"
+    train_mode: "none"
+    quant_mode: "quantmod"
+    quant_params:
+      scheme: "FP8_DYNAMIC"
+    input_model: null
+    depends_on: null
+
+  # ── Group 2: SFT (LoRA) → then Quantize ─────────────────
+  lane05_sft_fp16:
+    desc: "LoRA SFT → FP16 (no quant)"
+    group: "sft_then_quant"
+    train_mode: "sft"
+    quant_mode: "none"
+    input_model: null
+    depends_on: null
+
+  lane06_sft_gptq_w4a16:
+    desc: "LoRA SFT → GPTQ W4A16"
+    group: "sft_then_quant"
+    train_mode: "sft"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.01
+    input_model: "checkpoints/sft_merged"
+    depends_on: "lane05_sft_fp16"
+
+  lane07_sft_gptq_w4a16_damp:
+    desc: "LoRA SFT → GPTQ W4A16 dampened"
+    group: "sft_then_quant"
+    train_mode: "sft"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.02
+    input_model: "checkpoints/sft_merged"
+    depends_on: "lane05_sft_fp16"
+
+  # ── Group 3: Quantize → then Post-SFT (norms only) ──────
+  lane08_w4a16_postsft:
+    desc: "GPTQ W4A16 → Post-SFT"
+    group: "quant_then_sft"
+    train_mode: "post_sft"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.01
+    input_model: "models/lane01_gptq_w4a16"
+    depends_on: "lane01_gptq_w4a16"
+
+  lane09_w4a16_damp_postsft:
+    desc: "GPTQ W4A16 damp → Post-SFT"
+    group: "quant_then_sft"
+    train_mode: "post_sft"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.02
+    input_model: "models/lane02_gptq_w4a16_damp"
+    depends_on: "lane02_gptq_w4a16_damp"
+
+  # ── Group 4: Structural Compression ──────────────────────
+  lane10_prune28_kd_w4a16:
+    desc: "Prune 28L → KD → GPTQ W4A16"
+    group: "structural"
+    train_mode: "kd"
+    quant_mode: "gptq"
+    prune_params:
+      keep_layers: 28
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.02
+    input_model: null
+    depends_on: null
+
+  lane11_prune26_kd_w4a16:
+    desc: "Prune 26L → KD → GPTQ W4A16"
+    group: "structural"
+    train_mode: "kd"
+    quant_mode: "gptq"
+    prune_params:
+      keep_layers: 26
+    quant_params:
+      scheme: "W4A16"
+      cal_samples: 512
+      max_seq: 1024
+      dampening_frac: 0.02
+    input_model: null
+    depends_on: null
+
+  lane12_fp8_static:
+    desc: "FP8 Static (calibrated)"
+    group: "quant_only"
+    train_mode: "none"
+    quant_mode: "gptq"
+    quant_params:
+      scheme: "FP8"
+      cal_samples: 512
+      max_seq: 1024
+    input_model: null
+    depends_on: null

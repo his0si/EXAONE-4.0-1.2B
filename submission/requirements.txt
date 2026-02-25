@@ -1,0 +1,9 @@
+# EXAONE-4.0-1.2B 경량화 환경
+# Python 3.11.0 / CUDA 12.8 / Ubuntu 22.04
+
+torch==2.9.0
+vllm==0.14.1
+llmcompressor==0.9.0.1
+compressed-tensors==0.13.0
+transformers==4.57.3
+datasets

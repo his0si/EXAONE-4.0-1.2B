@@ -1,0 +1,1013 @@
+Fair Speed Comparison - 8 models, 5 runs each
+Log: /home/sunwoo/quant/0208/logs/speed_fair_test.log
+
+============================================================
+[SPEED] Testing: baseline_bf16
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/baseline_bf16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:54 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/baseline_bf16'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:54 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:54 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:54 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 02-11 18:20:54 [vllm.py:630] Asynchronous scheduling is enabled.
+INFO 02-11 18:20:54 [vllm.py:637] Disabling NCCL for DP synchronization when using async scheduling.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/baseline_bf16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m INFO 02-11 18:20:54 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/baseline_bf16', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/baseline_bf16', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/baseline_bf16, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m INFO 02-11 18:20:54 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:45733 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m ERROR 02-11 18:20:54 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531419)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] baseline_bf16: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: w8a8_cal2048_d02
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/w8a8_cal2048_d02' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:54 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/w8a8_cal2048_d02'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:54 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:54 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:55 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/w8a8_cal2048_d02' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m INFO 02-11 18:20:55 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/w8a8_cal2048_d02', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/w8a8_cal2048_d02', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/w8a8_cal2048_d02, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m INFO 02-11 18:20:55 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:56985 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m ERROR 02-11 18:20:55 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531441)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] w8a8_cal2048_d02: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d030_c2048
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d030_c2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:55 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d030_c2048'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:55 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:55 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:55 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d030_c2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m INFO 02-11 18:20:56 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d030_c2048', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d030_c2048', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d030_c2048, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m INFO 02-11 18:20:56 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:37633 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m ERROR 02-11 18:20:56 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531463)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d030_c2048: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d015_c2048
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d015_c2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:56 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d015_c2048'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:56 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:56 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:56 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d015_c2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m INFO 02-11 18:20:56 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d015_c2048', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d015_c2048', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d015_c2048, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m INFO 02-11 18:20:56 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:33131 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m ERROR 02-11 18:20:56 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531485)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d015_c2048: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d02_c2048_s2048
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:57 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:57 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:57 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:57 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m INFO 02-11 18:20:57 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d02_c2048_s2048, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m INFO 02-11 18:20:57 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:60447 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m ERROR 02-11 18:20:57 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531501)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d02_c2048_s2048: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d025_c3072
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d025_c3072' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:57 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d025_c3072'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:57 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:57 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:57 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d025_c3072' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m INFO 02-11 18:20:58 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d025_c3072', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d025_c3072', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d025_c3072, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m INFO 02-11 18:20:58 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:46687 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m ERROR 02-11 18:20:58 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531523)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d025_c3072: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d02_c1536
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c1536' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:58 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d02_c1536'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:58 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:58 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:58 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c1536' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m INFO 02-11 18:20:58 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d02_c1536', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d02_c1536', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d02_c1536, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m INFO 02-11 18:20:58 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:32929 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m ERROR 02-11 18:20:59 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531545)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d02_c1536: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+[SPEED] Testing: sweep_d02_c3072
+============================================================
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c3072' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+INFO 02-11 18:20:59 [utils.py:263] non-default args: {'trust_remote_code': True, 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'model': '/home/sunwoo/quant/0208/models/sweep_d02_c3072'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 02-11 18:20:59 [model.py:530] Resolved architecture: Exaone4ForCausalLM
+INFO 02-11 18:20:59 [model.py:1545] Using max model len 4096
+INFO 02-11 18:20:59 [scheduler.py:229] Chunked prefill is enabled with max_num_batched_tokens=8192.
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/sweep_d02_c3072' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m INFO 02-11 18:20:59 [core.py:97] Initializing a V1 LLM engine (v0.14.1) with config: model='/home/sunwoo/quant/0208/models/sweep_d02_c3072', speculative_config=None, tokenizer='/home/sunwoo/quant/0208/models/sweep_d02_c3072', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/sunwoo/quant/0208/models/sweep_d02_c3072, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m /home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   _C._set_float32_matmul_precision(precision)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m INFO 02-11 18:20:59 [parallel_state.py:1214] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://192.168.50.6:54645 backend=nccl
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936]                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m ERROR 02-11 18:20:59 [core.py:936] AttributeError: 'Tee' object has no attribute 'fileno'
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m Process EngineCore_DP0:
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self.run()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/multiprocessing/process.py", line 108, in run
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self._target(*self._args, **self._kwargs)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 940, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     raise e
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 927, in run_engine_core
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 692, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     super().__init__(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 106, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self.model_executor = executor_class(vllm_config)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self._init_executor()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py", line 47, in _init_executor
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self.driver_worker.init_device()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     self.worker.init_device()  # type: ignore
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 217, in init_device
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     init_worker_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py", line 955, in init_worker_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     init_distributed_environment(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1253, in init_distributed_environment
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     _WORLD = init_world_group(ranks, local_rank, backend)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 1052, in init_world_group
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     return GroupCoordinator(
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m            ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/distributed/parallel_state.py", line 332, in __init__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     with suppress_stdout():
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 137, in __enter__
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     return next(self.gen)
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m            ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m   File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/utils/system_utils.py", line 77, in suppress_stdout
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m     stdout_fd = sys.stdout.fileno()
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m                 ^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=2531567)[0;0m AttributeError: 'Tee' object has no attribute 'fileno'
+[ERROR] sweep_d02_c3072: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 136, in main
+    r = test_speed(name, path)
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/speed_fair_test.py", line 72, in test_speed
+    llm = LLM(
+          ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 176, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 110, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 94, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 652, in __init__
+    super().__init__(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 479, in __init__
+    with launch_core_engines(vllm_config, executor_class, log_stats) as (
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 921, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 980, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+============================================================
+Speed Comparison Summary
+============================================================
+
+Model                           tok/s    sec/tok  SpeedNorm
+---------------------------- -------- ---------- ----------
+
+Saved to /home/sunwoo/quant/0208/results/speed_fair_comparison.json

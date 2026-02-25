@@ -1,0 +1,52 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+
+[SQ+W8A8] Loading model from LGAI-EXAONE/EXAONE-4.0-1.2B
+`torch_dtype` is deprecated! Use `dtype` instead!
+[SQ+W8A8] Calibration: 512 samples, smoothing=0.5
+[SQ+W8A8] Running oneshot...
+Tokenizing:   0%|          | 0/512 [00:00<?, ? examples/s]Tokenizing:  20%|█▉        | 100/512 [00:00<00:00, 986.73 examples/s]Tokenizing:  46%|████▌     | 235/512 [00:00<00:00, 915.53 examples/s]Tokenizing:  66%|██████▌   | 337/512 [00:00<00:00, 947.64 examples/s]Tokenizing:  88%|████████▊ | 449/512 [00:00<00:00, 1005.95 examples/s]Tokenizing: 100%|██████████| 512/512 [00:00<00:00, 911.69 examples/s] 
+2026-02-10T01:37:13.804288+0900 | reset | INFO - Compression lifecycle reset
+2026-02-10T01:37:13.805049+0900 | from_modifiers | INFO - Creating recipe from modifiers
+2026-02-10T01:37:13.805138+0900 | _infer_mappings_from_model | INFO - No SmoothQuantModifier.mappings provided, inferring from model...
+2026-02-10T01:37:13.805173+0900 | get_layer_mappings_from_architecture | INFO - Architecture Exaone4ForCausalLM not found in mappings. Using default mappings: [LayerMap(balance_layers=['re:.*q_proj', 're:.*k_proj', 're:.*v_proj'], smooth_layers='re:.*input_layernorm'), LayerMap(balance_layers=['re:.*gate_proj', 're:.*up_proj'], smooth_layers='re:.*post_attention_layernorm')]
+Traceback (most recent call last):
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/modifiers/smoothquant/utils.py", line 110, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/modifiers/smoothquant/base.py", line 204, in _resolve_mappings
+    for *nested_balance_layers, smooth_layers in match_modules_set(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/compressed_tensors/utils/match.py", line 346, in match_modules_set
+    raise ValueError(
+ValueError: Found a final incomplete set with matches found for keys: {'re:.*k_proj', 're:.*v_proj', 're:.*q_proj'} but no matches found for keys: {'re:.*input_layernorm'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/quantize_w8a8_variants.py", line 178, in <module>
+    main()
+  File "/home/sunwoo/quant/0208/scripts/quantize_w8a8_variants.py", line 164, in main
+    quantize_w8a8_smoothquant(
+  File "/home/sunwoo/quant/0208/scripts/quantize_w8a8_variants.py", line 73, in quantize_w8a8_smoothquant
+    oneshot(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/entrypoints/oneshot.py", line 357, in oneshot
+    one_shot()
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/entrypoints/oneshot.py", line 172, in __call__
+    self.apply_recipe_modifiers(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/entrypoints/oneshot.py", line 209, in apply_recipe_modifiers
+    session.initialize(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/core/session.py", line 126, in initialize
+    mod_data = self._lifecycle.initialize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/core/lifecycle.py", line 104, in initialize
+    data = mod.initialize(state=self.state, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/modifiers/modifier.py", line 80, in initialize
+    self.initialized_ = self.on_initialize(state=state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/modifiers/smoothquant/base.py", line 134, in on_initialize
+    self.resolved_mappings_ = self._resolve_mappings(state.model)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/llmcompressor/modifiers/smoothquant/utils.py", line 116, in wrapper
+    raise RuntimeError(
+RuntimeError: Error resolving mappings for given architecture.Please refer to the README at https://github.com/vllm-project/llm-compressor/tree/main/src/llmcompressor/modifiers/smoothquant for more information.
+ERROR conda.cli.main_run:execute(127): `conda run python -u /home/sunwoo/quant/0208/scripts/quantize_w8a8_variants.py --mode smoothquant --cal-samples 512 --dampening 0.01 --smoothing 0.5` failed. (See above for error)

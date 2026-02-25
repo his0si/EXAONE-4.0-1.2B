@@ -1,0 +1,130 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]
+Loading checkpoint shards:   7%|▋         | 1/14 [00:02<00:29,  2.29s/it]
+Loading checkpoint shards:  14%|█▍        | 2/14 [00:04<00:30,  2.51s/it]
+Loading checkpoint shards:  21%|██▏       | 3/14 [00:07<00:28,  2.56s/it]
+Loading checkpoint shards:  29%|██▊       | 4/14 [00:10<00:25,  2.59s/it]
+Loading checkpoint shards:  36%|███▌      | 5/14 [00:12<00:23,  2.61s/it]
+Loading checkpoint shards:  43%|████▎     | 6/14 [00:15<00:20,  2.61s/it]
+Loading checkpoint shards:  50%|█████     | 7/14 [00:18<00:18,  2.61s/it]
+Loading checkpoint shards:  57%|█████▋    | 8/14 [00:20<00:15,  2.62s/it]
+Loading checkpoint shards:  64%|██████▍   | 9/14 [00:23<00:13,  2.63s/it]
+Loading checkpoint shards:  71%|███████▏  | 10/14 [00:26<00:10,  2.63s/it]
+Loading checkpoint shards:  79%|███████▊  | 11/14 [00:28<00:07,  2.64s/it]
+Loading checkpoint shards:  86%|████████▌ | 12/14 [00:31<00:05,  2.64s/it]
+Loading checkpoint shards:  93%|█████████▎| 13/14 [00:33<00:02,  2.62s/it]
+Loading checkpoint shards: 100%|██████████| 14/14 [00:33<00:00,  1.86s/it]
+Loading checkpoint shards: 100%|██████████| 14/14 [00:33<00:00,  2.43s/it]
+
+[DATA] Loaded 10000 from /home/sunwoo/quant/0208/data/manta/train_50k.json
+[DATA] Tokenizing 10000 samples, max_seq_length=256...
+
+[STEP1] Loading teacher: LGAI-EXAONE/EXAONE-4.0-32B (NF4 4-bit)...
+  Teacher loaded: 17.58 GB
+  Computing logits for 10000 samples (top-256)...
+    100/10000 (26s elapsed, ETA 2586s)
+    200/10000 (52s elapsed, ETA 2553s)
+    300/10000 (78s elapsed, ETA 2525s)
+    400/10000 (104s elapsed, ETA 2498s)
+    500/10000 (130s elapsed, ETA 2472s)
+    600/10000 (156s elapsed, ETA 2448s)
+    700/10000 (182s elapsed, ETA 2425s)
+    800/10000 (209s elapsed, ETA 2399s)
+    900/10000 (235s elapsed, ETA 2374s)
+    1000/10000 (261s elapsed, ETA 2348s)
+    1100/10000 (287s elapsed, ETA 2323s)
+    1200/10000 (313s elapsed, ETA 2297s)
+    1300/10000 (339s elapsed, ETA 2271s)
+    1400/10000 (365s elapsed, ETA 2245s)
+    1500/10000 (392s elapsed, ETA 2220s)
+    1600/10000 (418s elapsed, ETA 2195s)
+    1700/10000 (445s elapsed, ETA 2170s)
+    1800/10000 (471s elapsed, ETA 2145s)
+    1900/10000 (497s elapsed, ETA 2120s)
+    2000/10000 (524s elapsed, ETA 2095s)
+    2100/10000 (550s elapsed, ETA 2069s)
+    2200/10000 (576s elapsed, ETA 2043s)
+    2300/10000 (603s elapsed, ETA 2017s)
+    2400/10000 (629s elapsed, ETA 1991s)
+    2500/10000 (655s elapsed, ETA 1965s)
+    2600/10000 (681s elapsed, ETA 1938s)
+    2700/10000 (707s elapsed, ETA 1912s)
+    2800/10000 (734s elapsed, ETA 1886s)
+    2900/10000 (760s elapsed, ETA 1861s)
+    3000/10000 (786s elapsed, ETA 1835s)
+    3100/10000 (813s elapsed, ETA 1809s)
+    3200/10000 (839s elapsed, ETA 1783s)
+    3300/10000 (865s elapsed, ETA 1757s)
+    3400/10000 (892s elapsed, ETA 1731s)
+    3500/10000 (918s elapsed, ETA 1705s)
+    3600/10000 (944s elapsed, ETA 1679s)
+    3700/10000 (970s elapsed, ETA 1652s)
+    3800/10000 (996s elapsed, ETA 1625s)
+    3900/10000 (1022s elapsed, ETA 1599s)
+    4000/10000 (1048s elapsed, ETA 1572s)
+    4100/10000 (1074s elapsed, ETA 1546s)
+    4200/10000 (1100s elapsed, ETA 1519s)
+    4300/10000 (1126s elapsed, ETA 1493s)
+    4400/10000 (1152s elapsed, ETA 1467s)
+    4500/10000 (1179s elapsed, ETA 1441s)
+    4600/10000 (1205s elapsed, ETA 1414s)
+    4700/10000 (1231s elapsed, ETA 1388s)
+    4800/10000 (1257s elapsed, ETA 1362s)
+    4900/10000 (1283s elapsed, ETA 1336s)
+    5000/10000 (1310s elapsed, ETA 1310s)
+    5100/10000 (1336s elapsed, ETA 1283s)
+    5200/10000 (1362s elapsed, ETA 1257s)
+    5300/10000 (1388s elapsed, ETA 1231s)
+    5400/10000 (1414s elapsed, ETA 1205s)
+    5500/10000 (1441s elapsed, ETA 1179s)
+    5600/10000 (1467s elapsed, ETA 1153s)
+    5700/10000 (1493s elapsed, ETA 1127s)
+    5800/10000 (1520s elapsed, ETA 1101s)
+    5900/10000 (1546s elapsed, ETA 1074s)
+    6000/10000 (1573s elapsed, ETA 1048s)
+    6100/10000 (1599s elapsed, ETA 1022s)
+    6200/10000 (1625s elapsed, ETA 996s)
+    6300/10000 (1652s elapsed, ETA 970s)
+    6400/10000 (1678s elapsed, ETA 944s)
+    6500/10000 (1704s elapsed, ETA 918s)
+    6600/10000 (1730s elapsed, ETA 891s)
+    6700/10000 (1757s elapsed, ETA 865s)
+    6800/10000 (1783s elapsed, ETA 839s)
+    6900/10000 (1809s elapsed, ETA 813s)
+    7000/10000 (1835s elapsed, ETA 787s)
+    7100/10000 (1862s elapsed, ETA 760s)
+    7200/10000 (1888s elapsed, ETA 734s)
+    7300/10000 (1914s elapsed, ETA 708s)
+    7400/10000 (1941s elapsed, ETA 682s)
+    7500/10000 (1967s elapsed, ETA 656s)
+    7600/10000 (1993s elapsed, ETA 629s)
+    7700/10000 (2019s elapsed, ETA 603s)
+    7800/10000 (2046s elapsed, ETA 577s)
+    7900/10000 (2072s elapsed, ETA 551s)
+    8000/10000 (2098s elapsed, ETA 525s)
+    8100/10000 (2125s elapsed, ETA 498s)
+    8200/10000 (2151s elapsed, ETA 472s)
+    8300/10000 (2178s elapsed, ETA 446s)
+    8400/10000 (2204s elapsed, ETA 420s)
+    8500/10000 (2230s elapsed, ETA 394s)
+    8600/10000 (2257s elapsed, ETA 367s)
+    8700/10000 (2283s elapsed, ETA 341s)
+    8800/10000 (2310s elapsed, ETA 315s)
+    8900/10000 (2336s elapsed, ETA 289s)
+    9000/10000 (2362s elapsed, ETA 262s)
+    9100/10000 (2389s elapsed, ETA 236s)
+    9200/10000 (2415s elapsed, ETA 210s)
+    9300/10000 (2441s elapsed, ETA 184s)
+    9400/10000 (2467s elapsed, ETA 157s)
+    9500/10000 (2493s elapsed, ETA 131s)
+    9600/10000 (2520s elapsed, ETA 105s)
+    9700/10000 (2546s elapsed, ETA 79s)
+    9800/10000 (2572s elapsed, ETA 52s)
+    9900/10000 (2598s elapsed, ETA 26s)
+    10000/10000 (2624s elapsed, ETA 0s)
+  [STEP1] Done: 10000 logits in 2624s
+
+[DONE] KD model saved to /home/sunwoo/quant/0208/checkpoints/kd_40_32b
+

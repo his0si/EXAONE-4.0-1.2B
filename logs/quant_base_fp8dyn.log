@@ -1,0 +1,20 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+
+[FP8] Loading model from LGAI-EXAONE/EXAONE-4.0-1.2B
+`torch_dtype` is deprecated! Use `dtype` instead!
+[FP8] Applying FP8_DYNAMIC...
+2026-02-09T22:41:41.670085+0900 | reset | INFO - Compression lifecycle reset
+2026-02-09T22:41:41.672667+0900 | from_modifiers | INFO - Creating recipe from modifiers
+2026-02-09T22:41:41.698659+0900 | initialize | INFO - Compression lifecycle initialized for 1 modifiers
+2026-02-09T22:41:41.698871+0900 | IndependentPipeline | INFO - Inferred `DataFreePipeline` for `QuantizationModifier`
+Updating global scales:   0%|          | 0/210 [00:00<?, ?it/s]Updating global scales: 100%|██████████| 210/210 [00:00<00:00, 960527.63it/s]
+Fusing global scales: 0it [00:00, ?it/s]Fusing global scales: 667it [00:00, 734471.19it/s]
+Calibrating weights:   0%|          | 0/210 [00:00<?, ?it/s]Calibrating weights: 100%|██████████| 210/210 [00:00<00:00, 2660.87it/s]
+2026-02-09T22:41:42.208687+0900 | finalize | INFO - Compression lifecycle finalized for 1 modifiers
+2026-02-09T22:41:42.955635+0900 | post_process | WARNING - Optimized model is not saved. To save, please provide`output_dir` as input arg.Ex. `oneshot(..., output_dir=...)`
+[FP8] Done in 5.5s
+2026-02-09T22:41:42.965953+0900 | get_model_compressor | INFO - skip_sparsity_compression_stats set to True. Skipping sparsity compression statistic calculations. No sparsity compressor will be applied.
+Compressing model: 0it [00:00, ?it/s]Compressing model: 13it [00:00, 128.56it/s]Compressing model: 35it [00:00, 177.42it/s]Compressing model: 57it [00:00, 195.68it/s]Compressing model: 81it [00:00, 210.09it/s]Compressing model: 103it [00:00, 209.03it/s]Compressing model: 125it [00:00, 208.64it/s]Compressing model: 147it [00:00, 208.04it/s]Compressing model: 169it [00:00, 209.31it/s]Compressing model: 191it [00:00, 212.43it/s]Compressing model: 210it [00:01, 204.44it/s]
+[FP8] Saved to /home/sunwoo/quant/0208/models/base_fp8dyn (1431.8 MB)
+
+[DONE] FP8_DYNAMIC model saved to /home/sunwoo/quant/0208/models/base_fp8dyn

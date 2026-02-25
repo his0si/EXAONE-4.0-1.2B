@@ -1,0 +1,145 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[DATA] Loaded 10000 from /home/sunwoo/quant/0208/data/manta/train_50k.json
+[DATA] Tokenizing 10000 samples, max_seq_length=256...
+
+[STEP1] Loading teacher: LGAI-EXAONE/EXAONE-4.0-32B (NF4 4-bit)...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:02<00:30,  2.33s/it]Loading checkpoint shards:  14%|█▍        | 2/14 [00:05<00:30,  2.54s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [00:07<00:28,  2.59s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:10<00:26,  2.62s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:12<00:23,  2.63s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:15<00:21,  2.64s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:18<00:18,  2.64s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:20<00:15,  2.65s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:23<00:13,  2.65s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:26<00:10,  2.65s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:28<00:07,  2.66s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:31<00:05,  2.65s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:34<00:02,  2.64s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:34<00:00,  1.88s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:34<00:00,  2.45s/it]
+  Teacher loaded: 17.58 GB
+  Computing logits for 10000 samples (top-256)...
+    100/10000 (26s elapsed, ETA 2581s)
+    200/10000 (52s elapsed, ETA 2551s)
+    300/10000 (78s elapsed, ETA 2525s)
+    400/10000 (104s elapsed, ETA 2500s)
+    500/10000 (130s elapsed, ETA 2474s)
+    600/10000 (156s elapsed, ETA 2449s)
+    700/10000 (182s elapsed, ETA 2424s)
+    800/10000 (208s elapsed, ETA 2397s)
+    900/10000 (235s elapsed, ETA 2371s)
+    1000/10000 (261s elapsed, ETA 2345s)
+    1100/10000 (287s elapsed, ETA 2320s)
+    1200/10000 (313s elapsed, ETA 2294s)
+    1300/10000 (339s elapsed, ETA 2267s)
+    1400/10000 (365s elapsed, ETA 2241s)
+    1500/10000 (391s elapsed, ETA 2215s)
+    1600/10000 (417s elapsed, ETA 2189s)
+    1700/10000 (443s elapsed, ETA 2164s)
+    1800/10000 (469s elapsed, ETA 2137s)
+    1900/10000 (495s elapsed, ETA 2111s)
+    2000/10000 (521s elapsed, ETA 2085s)
+    2100/10000 (547s elapsed, ETA 2059s)
+    2200/10000 (573s elapsed, ETA 2033s)
+    2300/10000 (599s elapsed, ETA 2007s)
+    2400/10000 (626s elapsed, ETA 1981s)
+    2500/10000 (652s elapsed, ETA 1955s)
+    2600/10000 (678s elapsed, ETA 1929s)
+    2700/10000 (704s elapsed, ETA 1903s)
+    2800/10000 (730s elapsed, ETA 1877s)
+    2900/10000 (756s elapsed, ETA 1851s)
+    3000/10000 (782s elapsed, ETA 1825s)
+    3100/10000 (808s elapsed, ETA 1799s)
+    3200/10000 (834s elapsed, ETA 1772s)
+    3300/10000 (860s elapsed, ETA 1746s)
+    3400/10000 (886s elapsed, ETA 1720s)
+    3500/10000 (912s elapsed, ETA 1694s)
+    3600/10000 (938s elapsed, ETA 1668s)
+    3700/10000 (964s elapsed, ETA 1642s)
+    3800/10000 (990s elapsed, ETA 1616s)
+    3900/10000 (1017s elapsed, ETA 1590s)
+    4000/10000 (1043s elapsed, ETA 1564s)
+    4100/10000 (1069s elapsed, ETA 1538s)
+    4200/10000 (1095s elapsed, ETA 1512s)
+    4300/10000 (1121s elapsed, ETA 1486s)
+    4400/10000 (1147s elapsed, ETA 1460s)
+    4500/10000 (1173s elapsed, ETA 1434s)
+    4600/10000 (1199s elapsed, ETA 1407s)
+    4700/10000 (1225s elapsed, ETA 1381s)
+    4800/10000 (1251s elapsed, ETA 1355s)
+    4900/10000 (1277s elapsed, ETA 1329s)
+    5000/10000 (1303s elapsed, ETA 1303s)
+    5100/10000 (1329s elapsed, ETA 1277s)
+    5200/10000 (1355s elapsed, ETA 1251s)
+    5300/10000 (1381s elapsed, ETA 1225s)
+    5400/10000 (1408s elapsed, ETA 1199s)
+    5500/10000 (1434s elapsed, ETA 1173s)
+    5600/10000 (1460s elapsed, ETA 1147s)
+    5700/10000 (1486s elapsed, ETA 1121s)
+    5800/10000 (1512s elapsed, ETA 1095s)
+    5900/10000 (1538s elapsed, ETA 1069s)
+    6000/10000 (1564s elapsed, ETA 1043s)
+    6100/10000 (1590s elapsed, ETA 1017s)
+    6200/10000 (1616s elapsed, ETA 991s)
+    6300/10000 (1642s elapsed, ETA 964s)
+    6400/10000 (1668s elapsed, ETA 938s)
+    6500/10000 (1694s elapsed, ETA 912s)
+    6600/10000 (1720s elapsed, ETA 886s)
+    6700/10000 (1746s elapsed, ETA 860s)
+    6800/10000 (1773s elapsed, ETA 834s)
+    6900/10000 (1799s elapsed, ETA 808s)
+    7000/10000 (1825s elapsed, ETA 782s)
+    7100/10000 (1851s elapsed, ETA 756s)
+    7200/10000 (1877s elapsed, ETA 730s)
+    7300/10000 (1903s elapsed, ETA 704s)
+    7400/10000 (1929s elapsed, ETA 678s)
+    7500/10000 (1955s elapsed, ETA 652s)
+    7600/10000 (1981s elapsed, ETA 626s)
+    7700/10000 (2007s elapsed, ETA 599s)
+    7800/10000 (2033s elapsed, ETA 573s)
+    7900/10000 (2059s elapsed, ETA 547s)
+    8000/10000 (2085s elapsed, ETA 521s)
+    8100/10000 (2111s elapsed, ETA 495s)
+    8200/10000 (2137s elapsed, ETA 469s)
+    8300/10000 (2163s elapsed, ETA 443s)
+    8400/10000 (2189s elapsed, ETA 417s)
+    8500/10000 (2215s elapsed, ETA 391s)
+    8600/10000 (2241s elapsed, ETA 365s)
+    8700/10000 (2267s elapsed, ETA 339s)
+    8800/10000 (2293s elapsed, ETA 313s)
+    8900/10000 (2320s elapsed, ETA 287s)
+    9000/10000 (2346s elapsed, ETA 261s)
+    9100/10000 (2372s elapsed, ETA 235s)
+    9200/10000 (2398s elapsed, ETA 208s)
+    9300/10000 (2424s elapsed, ETA 182s)
+    9400/10000 (2450s elapsed, ETA 156s)
+    9500/10000 (2476s elapsed, ETA 130s)
+    9600/10000 (2502s elapsed, ETA 104s)
+    9700/10000 (2528s elapsed, ETA 78s)
+    9800/10000 (2554s elapsed, ETA 52s)
+    9900/10000 (2580s elapsed, ETA 26s)
+    10000/10000 (2606s elapsed, ETA 0s)
+  [STEP1] Done: 10000 logits in 2606s
+
+[STEP2] Loading student: LGAI-EXAONE/EXAONE-4.0-1.2B (BF16)...
+
+[KD] Configuration:
+  Student: 1279M trainable params
+  Data: 10000 samples, batch=1, grad_accum=16
+  Epochs: 3, Steps: 1875, Warmup: 93
+  LR: 1e-05, Temperature: 2.0, Alpha: 0.7, Top-K: 256
+
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/kd_precompute.py", line 315, in <module>
+    main()
+  File "/home/sunwoo/quant/0208/scripts/kd_precompute.py", line 309, in main
+    step2_train_student(args, tokenizer, input_ids, attention_mask, logits_dir)
+  File "/home/sunwoo/quant/0208/scripts/kd_precompute.py", line 222, in step2_train_student
+    kd_loss = F.kl_div(s_log_soft, t_soft, reduction="batchmean") * (T ** 2)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/nn/functional.py", line 3367, in kl_div
+    reduced = torch.kl_div(input, target, reduction_enum, log_target=log_target)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+ERROR conda.cli.main_run:execute(127): `conda run python -u /home/sunwoo/quant/0208/scripts/kd_precompute.py --teacher LGAI-EXAONE/EXAONE-4.0-32B --num-samples 10000 --max-seq-length 256 --batch-size 1 --grad-accum 16 --lr 1e-5 --epochs 3 --temperature 2.0 --alpha 0.7 --top-k 256 --output checkpoints/kd_40_32b --force` failed. (See above for error)

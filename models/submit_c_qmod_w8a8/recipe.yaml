@@ -1,0 +1,6 @@
+default_stage:
+  default_modifiers:
+    QuantizationModifier:
+      targets: [Linear]
+      ignore: [embed_tokens, lm_head]
+      scheme: W8A8

@@ -1,0 +1,60 @@
+{
+  "model_path": "/home/sunwoo/quant/0208/models/submit_c_qmod_w8a8",
+  "lane_id": "submit_c_qmod_w8a8",
+  "is_baseline": false,
+  "status": "OK",
+  "benchmarks": {
+    "kmmlu_pro": {
+      "type": "mcqa",
+      "score": 0.3448,
+      "error": null,
+      "num_samples": 2822,
+      "gen_time_s": 86.7107,
+      "gen_tokens": 953194
+    },
+    "kmmlu_redux": {
+      "type": "mcqa",
+      "score": 0.3645,
+      "error": null,
+      "num_samples": 2587,
+      "gen_time_s": 43.1796,
+      "gen_tokens": 606632
+    },
+    "ko_longrag": {
+      "type": "qa",
+      "score": 0.2579,
+      "error": null,
+      "num_samples": 600,
+      "gen_time_s": 254.1652,
+      "gen_tokens": 30495
+    },
+    "komt_bench": {
+      "type": "judge",
+      "score": null,
+      "error": null,
+      "num_samples": 80,
+      "gen_time_s": 5.687,
+      "gen_tokens": 33015
+    }
+  },
+  "speed": {
+    "total_time_s": 0.7392,
+    "total_tokens": 1800,
+    "sec_per_token": 0.000411,
+    "tokens_per_sec": 2435.16,
+    "all_times": [
+      0.7396,
+      0.7388,
+      0.7392
+    ],
+    "all_tokens": [
+      1800,
+      1800,
+      1800
+    ],
+    "bench_gen_time_s": 389.7425,
+    "bench_gen_tokens": 1623336,
+    "bench_sec_per_token": 0.00024
+  },
+  "perf_aggregate": 0.3224
+}

@@ -1,0 +1,46 @@
+[2026. 02. 11. (수) 18:26:32 KST] Testing: baseline_bf16
+[2026. 02. 11. (수) 18:26:53 KST] Result: 
+[2026. 02. 11. (수) 18:26:58 KST] Testing: w8a8_cal2048_d02
+[2026. 02. 11. (수) 18:27:20 KST] Result: 
+[2026. 02. 11. (수) 18:27:25 KST] Testing: sweep_d030_c2048
+[2026. 02. 11. (수) 18:27:46 KST] Result: 
+[2026. 02. 11. (수) 18:27:51 KST] Testing: sweep_d015_c2048
+[2026. 02. 11. (수) 18:28:13 KST] Result: 
+[2026. 02. 11. (수) 18:28:18 KST] Testing: sweep_d02_c2048_s2048
+[2026. 02. 11. (수) 18:28:39 KST] Result: 
+[2026. 02. 11. (수) 18:28:44 KST] Testing: sweep_d025_c3072
+[2026. 02. 11. (수) 18:29:07 KST] Result: 
+[2026. 02. 11. (수) 18:29:12 KST] Testing: sweep_d02_c1536
+[2026. 02. 11. (수) 18:29:35 KST] Result: 
+[2026. 02. 11. (수) 18:29:40 KST] Testing: sweep_d02_c3072
+[2026. 02. 11. (수) 18:30:02 KST] Result: 
+
+=== All Results ===
+{"name": "baseline_bf16", "tok_s": 1812.69, "spt": 0.000552, "runs": [{"time": 0.9933, "tokens": 1800, "tok_s": 1812.2}, {"time": 0.9924, "tokens": 1800, "tok_s": 1813.7}, {"time": 0.9932, "tokens": 1800, "tok_s": 1812.4}, {"time": 0.9924, "tokens": 1800, "tok_s": 1813.8}, {"time": 0.993, "tokens": 1800, "tok_s": 1812.7}]}
+
+{"name": "w8a8_cal2048_d02", "tok_s": 2440.22, "spt": 0.00041, "runs": [{"time": 0.7376, "tokens": 1800, "tok_s": 2440.2}, {"time": 0.738, "tokens": 1800, "tok_s": 2438.9}, {"time": 0.7383, "tokens": 1800, "tok_s": 2438.0}, {"time": 0.7373, "tokens": 1800, "tok_s": 2441.3}, {"time": 0.7375, "tokens": 1800, "tok_s": 2440.6}]}
+
+{"name": "sweep_d030_c2048", "tok_s": 2442.03, "spt": 0.000409, "runs": [{"time": 0.7388, "tokens": 1800, "tok_s": 2436.3}, {"time": 0.7371, "tokens": 1800, "tok_s": 2442.0}, {"time": 0.7369, "tokens": 1800, "tok_s": 2442.6}, {"time": 0.7366, "tokens": 1800, "tok_s": 2443.5}, {"time": 0.7371, "tokens": 1800, "tok_s": 2441.9}]}
+
+{"name": "sweep_d015_c2048", "tok_s": 2442.38, "spt": 0.000409, "runs": [{"time": 0.738, "tokens": 1800, "tok_s": 2439.2}, {"time": 0.7368, "tokens": 1800, "tok_s": 2442.9}, {"time": 0.737, "tokens": 1800, "tok_s": 2442.4}, {"time": 0.7366, "tokens": 1800, "tok_s": 2443.5}, {"time": 0.7372, "tokens": 1800, "tok_s": 2441.5}]}
+
+{"name": "sweep_d02_c2048_s2048", "tok_s": 2441.86, "spt": 0.00041, "runs": [{"time": 0.7372, "tokens": 1800, "tok_s": 2441.5}, {"time": 0.7366, "tokens": 1800, "tok_s": 2443.5}, {"time": 0.7371, "tokens": 1800, "tok_s": 2441.9}, {"time": 0.7368, "tokens": 1800, "tok_s": 2443.0}, {"time": 0.7401, "tokens": 1800, "tok_s": 2432.3}]}
+
+{"name": "sweep_d025_c3072", "tok_s": 2440.5, "spt": 0.00041, "runs": [{"time": 0.7381, "tokens": 1800, "tok_s": 2438.8}, {"time": 0.7376, "tokens": 1800, "tok_s": 2440.5}, {"time": 0.7378, "tokens": 1800, "tok_s": 2439.8}, {"time": 0.7372, "tokens": 1800, "tok_s": 2441.6}, {"time": 0.7371, "tokens": 1800, "tok_s": 2442.1}]}
+
+{"name": "sweep_d02_c1536", "tok_s": 2440.51, "spt": 0.00041, "runs": [{"time": 0.7379, "tokens": 1800, "tok_s": 2439.2}, {"time": 0.7376, "tokens": 1800, "tok_s": 2440.5}, {"time": 0.7376, "tokens": 1800, "tok_s": 2440.5}, {"time": 0.7372, "tokens": 1800, "tok_s": 2441.7}, {"time": 0.7375, "tokens": 1800, "tok_s": 2440.6}]}
+
+{"name": "sweep_d02_c3072", "tok_s": 2440.76, "spt": 0.00041, "runs": [{"time": 0.738, "tokens": 1800, "tok_s": 2439.1}, {"time": 0.7382, "tokens": 1800, "tok_s": 2438.5}, {"time": 0.7372, "tokens": 1800, "tok_s": 2441.8}, {"time": 0.7366, "tokens": 1800, "tok_s": 2443.6}, {"time": 0.7375, "tokens": 1800, "tok_s": 2440.8}]}
+
+
+=== Summary ===
+Model                           tok/s        spt  SpeedNorm
+------------------------------------------------------------
+baseline_bf16                  1812.7   0.000552     0.0000
+w8a8_cal2048_d02               2440.2   0.000410     0.2572
+sweep_d030_c2048               2442.0   0.000409     0.2591
+sweep_d015_c2048               2442.4   0.000409     0.2591
+sweep_d02_c2048_s2048          2441.9   0.000410     0.2572
+sweep_d025_c3072               2440.5   0.000410     0.2572
+sweep_d02_c1536                2440.5   0.000410     0.2572
+sweep_d02_c3072                2440.8   0.000410     0.2572

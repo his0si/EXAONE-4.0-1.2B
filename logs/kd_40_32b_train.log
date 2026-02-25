@@ -1,0 +1,90 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+[DATA] Loaded 10000 from /home/sunwoo/quant/0208/data/manta/train_50k.json
+[DATA] Tokenizing 10000 samples, max_seq_length=256...
+
+[STEP2] Loading student: LGAI-EXAONE/EXAONE-4.0-1.2B (BF16)...
+
+[KD] Configuration:
+  Student: 1279M trainable params
+  Data: 10000 samples, batch=1, grad_accum=16
+  Epochs: 3, Steps: 1875, Warmup: 93
+  LR: 1e-05, Temperature: 2.0, Alpha: 0.7, Top-K: 256
+
+  E1 step 800/10000 | loss=398.7704 kd=568.7031 ce=2.2608 | lr=5.38e-06 | ETA=25min
+  E1 step 1600/10000 | loss=345.9579 kd=493.3350 ce=2.0781 | lr=1.00e-05 | ETA=24min
+  E1 step 2400/10000 | loss=317.1755 kd=452.2532 ce=1.9942 | lr=9.97e-06 | ETA=23min
+  E1 step 3200/10000 | loss=299.3823 kd=426.8476 ce=1.9632 | lr=9.91e-06 | ETA=22min
+  E1 step 4000/10000 | loss=287.9106 kd=410.4680 ce=1.9433 | lr=9.81e-06 | ETA=22min
+  E1 step 4800/10000 | loss=279.7559 kd=398.8216 ce=1.9361 | lr=9.67e-06 | ETA=21min
+  E1 step 5600/10000 | loss=273.2649 kd=389.5530 ce=1.9261 | lr=9.50e-06 | ETA=20min
+  E1 step 6400/10000 | loss=268.2727 kd=382.4228 ce=1.9223 | lr=9.29e-06 | ETA=20min
+  E1 step 7200/10000 | loss=264.1539 kd=376.5408 ce=1.9179 | lr=9.04e-06 | ETA=19min
+  E1 step 8000/10000 | loss=260.7576 kd=371.6900 ce=1.9151 | lr=8.77e-06 | ETA=18min
+  E1 step 8800/10000 | loss=258.0814 kd=367.8685 ce=1.9115 | lr=8.46e-06 | ETA=18min
+  E1 step 9600/10000 | loss=255.6957 kd=364.4606 ce=1.9108 | lr=8.13e-06 | ETA=17min
+
+  Epoch 1/3 avg_loss=254.5967 (kd=362.8908, ce=1.9104) [8.4min elapsed]
+  -> Saved best model (loss=254.5967)
+
+  E2 step 800/10000 | loss=213.0700 kd=303.5835 ce=1.8718 | lr=7.59e-06 | ETA=16min
+  E2 step 1600/10000 | loss=212.5033 kd=302.7776 ce=1.8635 | lr=7.20e-06 | ETA=15min
+  E2 step 2400/10000 | loss=212.0555 kd=302.1326 ce=1.8754 | lr=6.80e-06 | ETA=15min
+  E2 step 3200/10000 | loss=212.0591 kd=302.1403 ce=1.8697 | lr=6.38e-06 | ETA=14min
+  E2 step 4000/10000 | loss=211.9692 kd=302.0122 ce=1.8689 | lr=5.95e-06 | ETA=13min
+  E2 step 4800/10000 | loss=211.7238 kd=301.6611 ce=1.8701 | lr=5.52e-06 | ETA=13min
+  E2 step 5600/10000 | loss=211.5845 kd=301.4577 ce=1.8805 | lr=5.08e-06 | ETA=12min
+  E2 step 6400/10000 | loss=211.7754 kd=301.7313 ce=1.8783 | lr=4.64e-06 | ETA=11min
+  E2 step 7200/10000 | loss=211.6046 kd=301.4878 ce=1.8770 | lr=4.20e-06 | ETA=11min
+  E2 step 8000/10000 | loss=211.3484 kd=301.1245 ce=1.8711 | lr=3.77e-06 | ETA=10min
+  E2 step 8800/10000 | loss=211.0052 kd=300.6355 ce=1.8679 | lr=3.35e-06 | ETA=9min
+  E2 step 9600/10000 | loss=210.9853 kd=300.6081 ce=1.8654 | lr=2.94e-06 | ETA=9min
+
+  Epoch 2/3 avg_loss=210.9124 (kd=300.5039, ce=1.8655) [16.8min elapsed]
+  -> Saved best model (loss=210.9124)
+
+  E3 step 800/10000 | loss=205.8860 kd=293.3321 ce=1.8451 | lr=2.36e-06 | ETA=8min
+  E3 step 1600/10000 | loss=204.1844 kd=290.9049 ce=1.8364 | lr=1.99e-06 | ETA=7min
+  E3 step 2400/10000 | loss=203.9317 kd=290.5422 ce=1.8405 | lr=1.65e-06 | ETA=6min
+  E3 step 3200/10000 | loss=203.7694 kd=290.3072 ce=1.8480 | lr=1.34e-06 | ETA=6min
+  E3 step 4000/10000 | loss=203.9368 kd=290.5450 ce=1.8511 | lr=1.05e-06 | ETA=5min
+  E3 step 4800/10000 | loss=203.9377 kd=290.5441 ce=1.8561 | lr=7.99e-07 | ETA=4min
+  E3 step 5600/10000 | loss=204.2595 kd=291.0040 ce=1.8556 | lr=5.76e-07 | ETA=4min
+  E3 step 6400/10000 | loss=204.1877 kd=290.9022 ce=1.8540 | lr=3.88e-07 | ETA=3min
+  E3 step 7200/10000 | loss=204.1714 kd=290.8788 ce=1.8542 | lr=2.36e-07 | ETA=2min
+  E3 step 8000/10000 | loss=204.3136 kd=291.0802 ce=1.8583 | lr=1.21e-07 | ETA=2min
+  E3 step 8800/10000 | loss=204.2667 kd=291.0125 ce=1.8598 | lr=4.36e-08 | ETA=1min
+  E3 step 9600/10000 | loss=204.2192 kd=290.9453 ce=1.8583 | lr=4.86e-09 | ETA=0min
+
+  Epoch 3/3 avg_loss=204.2189 (kd=290.9451, ce=1.8577) [25.1min elapsed]
+  -> Saved best model (loss=204.2189)
+
+[KD] Complete: 25.2 minutes, best_loss=204.2189
+
+[DONE] KD model saved to /home/sunwoo/quant/0208/checkpoints/kd_40_32b
+

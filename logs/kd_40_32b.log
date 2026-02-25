@@ -1,0 +1,46 @@
+[INFO] Local base_model not found, using HF: LGAI-EXAONE/EXAONE-4.0-1.2B
+======================================================================
+  Knowledge Distillation from Large Teacher
+  Teacher: LGAI-EXAONE/EXAONE-4.0-32B (NF4 4-bit)
+  Student: LGAI-EXAONE/EXAONE-4.0-1.2B (BF16, all params)
+  Output:  /home/sunwoo/quant/0208/checkpoints/kd_40_32b
+======================================================================
+
+[1/4] Loading tokenizer from /home/sunwoo/quant/0208/models/lane01_gptq_w4a16...
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+
+[2/4] Loading training data...
+[DATA] Loaded 10000 from /home/sunwoo/quant/0208/data/manta/train_50k.json
+[DATA] Tokenizing 10000 samples, max_seq_length=256...
+
+[3/4] Loading teacher: LGAI-EXAONE/EXAONE-4.0-32B (NF4 4-bit)...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files:   7%|▋         | 1/14 [44:34<9:39:31, 2674.71s/it]Fetching 14 files:  14%|█▍        | 2/14 [47:08<3:58:18, 1191.52s/it]Fetching 14 files:  21%|██▏       | 3/14 [50:43<2:16:41, 745.62s/it] Fetching 14 files:  29%|██▊       | 4/14 [52:38<1:22:49, 496.90s/it]Fetching 14 files:  64%|██████▍   | 9/14 [1:15:54<28:01, 336.24s/it]Fetching 14 files:  71%|███████▏  | 10/14 [1:17:47<19:49, 297.29s/it]Fetching 14 files:  79%|███████▊  | 11/14 [1:18:39<12:25, 248.37s/it]Fetching 14 files:  86%|████████▌ | 12/14 [1:19:02<06:37, 198.50s/it]Fetching 14 files: 100%|██████████| 14/14 [1:19:02<00:00, 338.76s/it]
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:02<00:29,  2.26s/it]Loading checkpoint shards:  14%|█▍        | 2/14 [00:04<00:29,  2.50s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [00:07<00:28,  2.56s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:10<00:25,  2.58s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:12<00:23,  2.60s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:15<00:20,  2.60s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:18<00:18,  2.60s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:20<00:15,  2.61s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:23<00:13,  2.61s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:25<00:10,  2.60s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:28<00:07,  2.61s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:31<00:05,  2.61s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:33<00:02,  2.58s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:33<00:00,  1.84s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:33<00:00,  2.41s/it]
+  Teacher loaded: 17.58 GB
+
+[4/4] Loading student: LGAI-EXAONE/EXAONE-4.0-1.2B (BF16)...
+  Student loaded: 2.56 GB
+  GPU: 20.6GB used / 25.4GB total
+
+[KD] Configuration:
+  Teacher: LGAI-EXAONE/EXAONE-4.0-32B
+  Student: 1279M params (1279M trainable)
+  Data: 10000 samples, batch=1, grad_accum=16
+  Effective batch: 16
+  Epochs: 3, Steps: 1875, Warmup: 93
+  LR: 1e-05, Temperature: 2.0, Alpha(KD): 0.7
+
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/kd_from_large_teacher.py", line 301, in <module>
+    main()
+  File "/home/sunwoo/quant/0208/scripts/kd_from_large_teacher.py", line 288, in main
+    run_kd(teacher, student, tokenizer, train_dataset, output_dir, args)
+  File "/home/sunwoo/quant/0208/scripts/kd_from_large_teacher.py", line 124, in run_kd
+    kd_loss = F.kl_div(
+              ^^^^^^^^^
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/nn/functional.py", line 3367, in kl_div
+    reduced = torch.kl_div(input, target, reduction_enum, log_target=log_target)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 4.81 MiB is free. Including non-PyTorch memory, this process has 23.63 GiB memory in use. Of the allocated memory 23.03 GiB is allocated by PyTorch, and 148.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+ERROR conda.cli.main_run:execute(127): `conda run python -u /home/sunwoo/quant/0208/scripts/kd_from_large_teacher.py --teacher LGAI-EXAONE/EXAONE-4.0-32B --teacher-revision  --num-samples 10000 --max-seq-length 256 --batch-size 1 --grad-accum 16 --lr 1e-5 --epochs 3 --temperature 2.0 --alpha 0.7 --output checkpoints/kd_40_32b --force` failed. (See above for error)

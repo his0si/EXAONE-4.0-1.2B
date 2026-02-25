@@ -1,0 +1,191 @@
+============================================================
+  32B Teacher KD: kd32b_base
+  Student: /home/sunwoo/quant/0208/base_model
+  Logits: /home/sunwoo/quant/0208/checkpoints/teacher_32b_logits
+  KD output: /home/sunwoo/quant/0208/checkpoints/kd32b_base_kd
+  Quant output: /home/sunwoo/quant/0208/models/kd32b_base_w8a8
+============================================================
+
+============================================================
+Pass 1: Generate 32B teacher logits
+============================================================
+  4750 training texts loaded
+[TEACHER] Loading /home/sunwoo/quant/0208/teacher_32b_gptq via GPTQModel...
+
+
+[33mWARN[0m  Python GIL is enabled: Multi-gpu quant acceleration for MoE models is sub-optimal and multi-core accelerated cpu packing is also disabled. We recommend Python >= 3.13.3t with Pytorch > 2.8 for mult-gpu quantization and multi-cpu packing with env `PYTHON_GIL=0`.
+
+[33mWARN[0m  Feature `utils/Perplexity` requires Python < 3.14 and Python GIL enabled and Python >= 3.13.3T (T for Threading-Free edition of Python) plus Torch 2.8. Feature is currently skipped/disabled.
+
+[32mINFO[0m  ENV: Auto setting PYTORCH_ALLOC_CONF='expandable_segments:True,max_split_size_mb:256,garbage_collection_threshold:0.7' for memory saving.
+
+[32mINFO[0m  ENV: Auto setting CUDA_DEVICE_ORDER=PCI_BUS_ID for correctness.          
+
+[36mDEBUG[0m BitBLAS import failed: No module named 'bitblas'                         
+
+[36mDEBUG[0m Skipping qlinear module import `bitblas_target_detector`: No module named 'thefuzz'
+
+[32mINFO[0m  
+
+_____/\\\\\\\\\\\\__/\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\______________________/\\\________/\\\\____________/\\\\_______________________/\\\__________________/\\\\\\____
+ ___/\\\//////////__\/\\\/////////\\\_\///////\\\/////____________________/\\\\/\\\\____\/\\\\\\________/\\\\\\______________________\/\\\_________________\////\\\____
+  __/\\\_____________\/\\\_______\/\\\_______\/\\\_______________________/\\\//\////\\\__\/\\\//\\\____/\\\//\\\______________________\/\\\____________________\/\\\____
+   _\/\\\____/\\\\\\\_\/\\\\\\\\\\\\\/________\/\\\________/\\\\\\\\\\\__/\\\______\//\\\_\/\\\\///\\\/\\\/_\/\\\_____/\\\\\___________\/\\\______/\\\\\\\\_____\/\\\____
+    _\/\\\___\/////\\\_\/\\\/////////__________\/\\\_______\///////////__\//\\\______/\\\__\/\\\__\///\\\/___\/\\\___/\\\///\\\____/\\\\\\\\\____/\\\/////\\\____\/\\\____
+     _\/\\\_______\/\\\_\/\\\___________________\/\\\______________________\///\\\\/\\\\/___\/\\\____\///_____\/\\\__/\\\__\//\\\__/\\\////\\\___/\\\\\\\\\\\_____\/\\\____
+      _\/\\\_______\/\\\_\/\\\___________________\/\\\________________________\////\\\//_____\/\\\_____________\/\\\_\//\\\__/\\\__\/\\\__\/\\\__\//\\///////______\/\\\____
+       _\//\\\\\\\\\\\\/__\/\\\___________________\/\\\___________________________\///\\\\\\__\/\\\_____________\/\\\__\///\\\\\/___\//\\\\\\\/\\__\//\\\\\\\\\\__/\\\\\\\\\_
+        __\////////////____\///____________________\///______________________________\//////___\///______________\///_____\/////______\///////\//____\//////////__\/////////__
+
+from_quantized: adapter: None
+
+[32mINFO[0m  Loader: Auto dtype (native bfloat16): `torch.bfloat16`                   
+
+[33mWARN[0m  QuantizeConfig: `desc_act=True` automatically disables `act_group_aware`. Set `act_group_aware=False` explicitly to silence this warning.
+
+[32mINFO[0m  QuantizeConfig: offload_to_disk_path auto set to `./gptqmodel_offload/hqdpgrum-rkaakpxx/`
+
+[32mINFO[0m  Estimated Quantization BPW (bits per weight): 4.2875 bpw, based on [bits: 4, group_size: 128]
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `MarlinQuantLinear`             
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `MarlinQuantLinear`             
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `ExllamaV2QuantLinear`          
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `TritonV2QuantLinear`           
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `TorchQuantLinear`              
+
+[32mINFO[0m  Kernel: candidates -> `[MarlinQuantLinear, MarlinQuantLinear, ExllamaV2QuantLinear, TritonV2QuantLinear, TorchQuantLinear]`
+
+[32mINFO[0m  Kernel: selected -> `MarlinQuantLinear`.                                 
+
+[32mINFO[0m  Loader: device = DEVICE.CUDA                                             
+
+[32mINFO[0m  Loader: Built map across 1 GPU(s), 68 entries. First 8: [('model.embed_tokens', 'cuda:0'), ('model.layers.0', 'cuda:0'), ('model.layers.1', 'cuda:0'), ('model.layers.2', 'cuda:0'), ('model.layers.3', 'cuda:0'), ('model.layers.4', 'cuda:0'), ('model.layers.5', 'cuda:0'), ('model.layers.6', 'cuda:0')]
+
+[32mINFO[0m  Loader: device_map = {'model.embed_tokens': 'cuda:0', 'model.layers.0': 'cuda:0', 'model.layers.1': 'cuda:0', 'model.layers.2': 'cuda:0', 'model.layers.3': 'cuda:0', 'model.layers.4': 'cuda:0', 'model.layers.5': 'cuda:0', 'model.layers.6': 'cuda:0', 'model.layers.7': 'cuda:0', 'model.layers.8': 'cuda:0', 'model.layers.9': 'cuda:0', 'model.layers.10': 'cuda:0', 'model.layers.11': 'cuda:0', 'model.layers.12': 'cuda:0', 'model.layers.13': 'cuda:0', 'model.layers.14': 'cuda:0', 'model.layers.15': 'cuda:0', 'model.layers.16': 'cuda:0', 'model.layers.17': 'cuda:0', 'model.layers.18': 'cuda:0', 'model.layers.19': 'cuda:0', 'model.layers.20': 'cuda:0', 'model.layers.21': 'cuda:0', 'model.layers.22': 'cuda:0', 'model.layers.23': 'cuda:0', 'model.layers.24': 'cuda:0', 'model.layers.25': 'cuda:0', 'model.layers.26': 'cuda:0', 'model.layers.27': 'cuda:0', 'model.layers.28': 'cuda:0', 'model.layers.29': 'cuda:0', 'model.layers.30': 'cuda:0', 'model.layers.31': 'cuda:0', 'model.layers.32': 'cuda:0', 'model.layers.33': 'cuda:0', 'model.layers.34': 'cuda:0', 'model.layers.35': 'cuda:0', 'model.layers.36': 'cuda:0', 'model.layers.37': 'cuda:0', 'model.layers.38': 'cuda:0', 'model.layers.39': 'cuda:0', 'model.layers.40': 'cuda:0', 'model.layers.41': 'cuda:0', 'model.layers.42': 'cuda:0', 'model.layers.43': 'cuda:0', 'model.layers.44': 'cuda:0', 'model.layers.45': 'cuda:0', 'model.layers.46': 'cuda:0', 'model.layers.47': 'cuda:0', 'model.layers.48': 'cuda:0', 'model.layers.49': 'cuda:0', 'model.layers.50': 'cuda:0', 'model.layers.51': 'cuda:0', 'model.layers.52': 'cuda:0', 'model.layers.53': 'cuda:0', 'model.layers.54': 'cuda:0', 'model.layers.55': 'cuda:0', 'model.layers.56': 'cuda:0', 'model.layers.57': 'cuda:0', 'model.layers.58': 'cuda:0', 'model.layers.59': 'cuda:0', 'model.layers.60': 'cuda:0', 'model.layers.61': 'cuda:0', 'model.layers.62': 'cuda:0', 'model.layers.63': 'cuda:0', 'lm_head': 'cuda:0', 'model.norm': 'cuda:0', 'model.rotary_emb': 'cuda:0'}
+
+[32mINFO[0m  Kernel: Auto-selection: adding candidate `MarlinQuantLinear`             
+
+[32mINFO[0m  Kernel: selected -> `MarlinQuantLinear`.                                 
+
+[32mINFO[0m  gc.collect() reclaimed 0 objects in 0.072s                               
+
+[32mINFO[0m  Model: Loaded `generation_config`: GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 361,
+  "pad_token_id": 0
+}
+
+
+[32mINFO[0m  Model: Auto-fixed `generation_config` mismatch between model and `generation_config.json`.
+
+[32mINFO[0m  Model: Updated `generation_config`: GenerationConfig {
+  "bos_token_id": 1,
+  "cache_implementation": "hybrid",
+  "do_sample": true,
+  "eos_token_id": 361,
+  "pad_token_id": 0
+}
+
+
+[32mINFO[0m  Kernel: loaded -> `[MarlinQuantLinear]`                                  
+[TEACHER] Loaded in 4.7s, GPU mem: 18.3 GB
+  100/4750 | 49091 tokens | 0.4min elapsed, ~17.0min remaining
+  200/4750 | 99255 tokens | 0.7min elapsed, ~16.7min remaining
+  300/4750 | 148390 tokens | 1.1min elapsed, ~16.3min remaining
+  400/4750 | 196274 tokens | 1.5min elapsed, ~15.8min remaining
+  Chunk 0: 500 samples saved [500/4750] 1.8min
+  500/4750 | 245039 tokens | 1.8min elapsed, ~15.5min remaining
+  600/4750 | 294534 tokens | 2.2min elapsed, ~15.1min remaining
+  700/4750 | 344205 tokens | 2.6min elapsed, ~14.8min remaining
+  800/4750 | 393735 tokens | 2.9min elapsed, ~14.4min remaining
+  900/4750 | 443086 tokens | 3.3min elapsed, ~14.1min remaining
+  Chunk 1: 500 samples saved [1000/4750] 3.7min
+  1000/4750 | 492781 tokens | 3.7min elapsed, ~13.7min remaining
+  1100/4750 | 541981 tokens | 4.0min elapsed, ~13.4min remaining
+  1200/4750 | 591917 tokens | 4.4min elapsed, ~13.0min remaining
+  1300/4750 | 642463 tokens | 4.8min elapsed, ~12.6min remaining
+  1400/4750 | 691519 tokens | 5.1min elapsed, ~12.3min remaining
+  Chunk 2: 500 samples saved [1500/4750] 5.5min
+  1500/4750 | 741784 tokens | 5.5min elapsed, ~11.9min remaining
+  1600/4750 | 791653 tokens | 5.9min elapsed, ~11.6min remaining
+  1700/4750 | 839843 tokens | 6.2min elapsed, ~11.2min remaining
+  1800/4750 | 889615 tokens | 6.6min elapsed, ~10.8min remaining
+  1900/4750 | 939903 tokens | 7.0min elapsed, ~10.5min remaining
+  Chunk 3: 500 samples saved [2000/4750] 7.3min
+  2000/4750 | 988330 tokens | 7.3min elapsed, ~10.1min remaining
+  2100/4750 | 1037498 tokens | 7.7min elapsed, ~9.7min remaining
+  2200/4750 | 1085702 tokens | 8.1min elapsed, ~9.3min remaining
+  2300/4750 | 1134738 tokens | 8.4min elapsed, ~9.0min remaining
+  2400/4750 | 1184098 tokens | 8.8min elapsed, ~8.6min remaining
+  Chunk 4: 500 samples saved [2500/4750] 9.2min
+  2500/4750 | 1233383 tokens | 9.2min elapsed, ~8.2min remaining
+  2600/4750 | 1282768 tokens | 9.5min elapsed, ~7.9min remaining
+  2700/4750 | 1332237 tokens | 9.9min elapsed, ~7.5min remaining
+  2800/4750 | 1381444 tokens | 10.3min elapsed, ~7.1min remaining
+  2900/4750 | 1431196 tokens | 10.6min elapsed, ~6.8min remaining
+  Chunk 5: 500 samples saved [3000/4750] 11.0min
+  3000/4750 | 1481206 tokens | 11.0min elapsed, ~6.4min remaining
+  3100/4750 | 1530283 tokens | 11.4min elapsed, ~6.0min remaining
+  3200/4750 | 1579680 tokens | 11.7min elapsed, ~5.7min remaining
+  3300/4750 | 1628583 tokens | 12.1min elapsed, ~5.3min remaining
+  3400/4750 | 1678552 tokens | 12.5min elapsed, ~4.9min remaining
+  Chunk 6: 500 samples saved [3500/4750] 12.8min
+  3500/4750 | 1728168 tokens | 12.8min elapsed, ~4.6min remaining
+  3600/4750 | 1777621 tokens | 13.2min elapsed, ~4.2min remaining
+  3700/4750 | 1826909 tokens | 13.6min elapsed, ~3.8min remaining
+  3800/4750 | 1876136 tokens | 13.9min elapsed, ~3.5min remaining
+  3900/4750 | 1924754 tokens | 14.3min elapsed, ~3.1min remaining
+  Chunk 7: 500 samples saved [4000/4750] 14.7min
+  4000/4750 | 1974570 tokens | 14.7min elapsed, ~2.7min remaining
+  4100/4750 | 2023964 tokens | 15.0min elapsed, ~2.4min remaining
+  4200/4750 | 2074016 tokens | 15.4min elapsed, ~2.0min remaining
+  4300/4750 | 2124378 tokens | 15.8min elapsed, ~1.7min remaining
+  4400/4750 | 2174344 tokens | 16.1min elapsed, ~1.3min remaining
+  Chunk 8: 500 samples saved [4500/4750] 16.5min
+  4500/4750 | 2223525 tokens | 16.5min elapsed, ~0.9min remaining
+  4600/4750 | 2274081 tokens | 16.9min elapsed, ~0.6min remaining
+  4700/4750 | 2322558 tokens | 17.2min elapsed, ~0.2min remaining
+  Chunk 9: 250 samples saved [4750/4750] 17.4min
+[TEACHER] Done: 4750 samples, 2347956 tokens, 10 chunks, 17.4min
+
+============================================================
+Pass 2: Train student with saved logits
+============================================================
+[STUDENT] Loading /home/sunwoo/quant/0208/base_model...
+[STUDENT] 30L, inter=4096, 1279M trainable params
+[LOGITS] Loaded 4750 samples from 10 chunks
+[KD] 4750 valid samples, topk=256, vocab=102400
+[KD] batch=2x4, epochs=3, lr=2e-05, T=2.0, alpha=0.7
+[KD] total_steps=1781
+Skipping import of cpp extensions due to incompatible torch version 2.9.0+cu128 for torchao version 0.16.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+[W220 15:55:52.425273719 Context.cpp:470] Warning: torch.backends.cuda.preferred_linalg_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 0 files: 0it [00:00, ?it/s]
+Fetching 0 files: 0it [00:00, ?it/s]
+Failed to load CPU gemm_4bit kernel: Cannot install kernel from repo kernels-community/quantization_gptq (revision: main). Use fallback path.                         Please make sure you already `pip install kernels` and the kernels >= 0.11.1
+INFO:tokenicer.tokenicer:Tokenicer: Auto fixed pad_token_id=0 (token='[PAD]').
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Traceback (most recent call last):
+  File "/home/sunwoo/quant/0208/scripts/kd_32b_teacher.py", line 488, in <module>
+    main()
+  File "/home/sunwoo/quant/0208/scripts/kd_32b_teacher.py", line 461, in main
+    student = train_with_saved_logits(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sunwoo/quant/0208/scripts/kd_32b_teacher.py", line 291, in train_with_saved_logits
+    loss.backward()
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/sunwoo/miniconda3/envs/quant/lib/python3.11/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 42.81 MiB is free. Including non-PyTorch memory, this process has 23.59 GiB memory in use. Of the allocated memory 22.47 GiB is allocated by PyTorch, and 610.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+ERROR conda.cli.main_run:execute(127): `conda run python -u scripts/kd_32b_teacher.py --samples 5000 --epochs 3 --seq 512 --topk 256` failed. (See above for error)
+

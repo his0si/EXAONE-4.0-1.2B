@@ -1,0 +1,21 @@
+The tokenizer you are loading from '/home/sunwoo/quant/0208/models/lane01_gptq_w4a16' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+
+[FP8] Loading model from /home/sunwoo/quant/0208/checkpoints/kd_35_78b
+`torch_dtype` is deprecated! Use `dtype` instead!
+[FP8] Applying FP8_DYNAMIC...
+The tokenizer you are loading from '/home/sunwoo/quant/0208/checkpoints/kd_35_78b' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+2026-02-09T22:44:42.326687+0900 | reset | INFO - Compression lifecycle reset
+2026-02-09T22:44:42.327175+0900 | from_modifiers | INFO - Creating recipe from modifiers
+2026-02-09T22:44:42.341760+0900 | initialize | INFO - Compression lifecycle initialized for 1 modifiers
+2026-02-09T22:44:42.341937+0900 | IndependentPipeline | INFO - Inferred `DataFreePipeline` for `QuantizationModifier`
+Updating global scales:   0%|          | 0/210 [00:00<?, ?it/s]Updating global scales: 100%|██████████| 210/210 [00:00<00:00, 1096891.46it/s]
+Fusing global scales: 0it [00:00, ?it/s]Fusing global scales: 667it [00:00, 720288.56it/s]
+Calibrating weights:   0%|          | 0/210 [00:00<?, ?it/s]Calibrating weights: 100%|██████████| 210/210 [00:00<00:00, 2596.40it/s]
+2026-02-09T22:44:42.849894+0900 | finalize | INFO - Compression lifecycle finalized for 1 modifiers
+2026-02-09T22:44:43.605982+0900 | post_process | WARNING - Optimized model is not saved. To save, please provide`output_dir` as input arg.Ex. `oneshot(..., output_dir=...)`
+[FP8] Done in 1.4s
+2026-02-09T22:44:43.615217+0900 | get_model_compressor | INFO - skip_sparsity_compression_stats set to True. Skipping sparsity compression statistic calculations. No sparsity compressor will be applied.
+Compressing model: 0it [00:00, ?it/s]Compressing model: 13it [00:00, 121.39it/s]Compressing model: 35it [00:00, 173.34it/s]Compressing model: 57it [00:00, 193.08it/s]Compressing model: 81it [00:00, 208.52it/s]Compressing model: 103it [00:00, 208.52it/s]Compressing model: 125it [00:00, 209.08it/s]Compressing model: 146it [00:00, 208.96it/s]Compressing model: 167it [00:00, 209.13it/s]Compressing model: 188it [00:00, 206.93it/s]Compressing model: 209it [00:01, 201.91it/s]Compressing model: 210it [00:01, 200.15it/s]
+[FP8] Saved to /home/sunwoo/quant/0208/models/kd_35_78b_fp8dyn (1431.8 MB)
+
+[DONE] FP8_DYNAMIC model saved to /home/sunwoo/quant/0208/models/kd_35_78b_fp8dyn

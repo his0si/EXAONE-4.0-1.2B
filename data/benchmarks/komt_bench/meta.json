@@ -1,0 +1,18 @@
+{
+  "hf_id": "LGAI-EXAONE/KoMT-Bench",
+  "type": "judge",
+  "split": "train",
+  "num_samples": 80,
+  "columns": [
+    "question_id",
+    "category",
+    "turns",
+    "reference"
+  ],
+  "sample": {
+    "question_id": "81",
+    "category": "writing",
+    "turns": "['하와이 여행을 준비하는 사람을 위한 재밌는 블로그 게시물을 작성해 주세요. 현지에서 즐길 수 있는 문화 체험과 꼭 가봐야 할 명소 위주로 작성해 주세요.', '모든 문장이 ㄱ으로 시작하게 이전 답변을 수정 작성하세요.']",
+    "reference": "[]"
+  }
+}
