@@ -3,13 +3,13 @@
 """
 EXAONE-4.0-1.2B 경량화 재현 코드
 ===================================
-Public Score 재현용 학습/경량화 코드
+Public Score 0.6295 재현용 학습/경량화 코드
 
 방법: QuantizationModifier W8A8 (INT8 weight per-channel + INT8 activation per-token dynamic)
 추가: max_position_embeddings를 65536 → 16384로 축소하여 KV cache 메모리 절감 → 추론 속도 향상
 
 실행 방법:
-    conda activate quant
+    conda activate lgaimers
     python reproduce.py
 
 필요 시간: ~10초 (양자화), ~2분 (제출 파일 생성)
@@ -24,7 +24,6 @@ import shutil
 
 import torch
 from datasets import Dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 # ============================================================
@@ -54,6 +53,8 @@ MAX_POSITION_EMBEDDINGS = 16384
 
 def load_model_and_tokenizer():
     """베이스 모델과 토크나이저를 로드합니다."""
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
     print("[1/5] 모델 및 토크나이저 로드 중...")
 
     tokenizer = AutoTokenizer.from_pretrained(
@@ -201,6 +202,7 @@ def main():
     print("=" * 60)
     print("  EXAONE-4.0-1.2B 경량화 재현")
     print("  방법: QuantizationModifier W8A8")
+    print("  목표 Score: 0.6295")
     print("=" * 60)
 
     # 1. 모델 로드
@@ -227,6 +229,7 @@ def main():
     print("\n" + "=" * 60)
     print("  완료!")
     print(f"  제출 파일: {ZIP_NAME}.zip")
+    print("  예상 서버 Score: 0.6295")
     print("=" * 60)
 
 
